@@ -74,9 +74,11 @@ const Provider = ({
         if (hasAlert) return alertContext.current.alerts[findIndex]
       }
 
-      const id = Math.random()
-        .toString(36)
-        .substr(2, 9)
+      const id =
+        options.id ||
+        Math.random()
+          .toString(36)
+          .substr(2, 9)
 
       const alertOptions = {
         position: options.position || position,

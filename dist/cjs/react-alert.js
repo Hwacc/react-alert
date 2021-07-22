@@ -391,7 +391,7 @@ var Provider = function Provider(_ref) {
       if (hasAlert) return alertContext.current.alerts[findIndex];
     }
 
-    var id = Math.random().toString(36).substr(2, 9);
+    var id = options.id || Math.random().toString(36).substr(2, 9);
 
     var alertOptions = _objectSpread2({
       position: options.position || position,
