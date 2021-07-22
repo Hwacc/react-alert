@@ -62,6 +62,18 @@ const Provider = ({
 
   const show = useCallback(
     (message = '', options = {}) => {
+      if (options.id) {
+        let findIndex = -1
+        const hasAlert = alertContext.current.alerts.some((alert, index) => {
+          if (alert.id === options.id) {
+            findIndex = index
+            return true
+          }
+          return false
+        })
+        if (hasAlert) return alertContext.current.alerts[findIndex]
+      }
+
       const id = Math.random()
         .toString(36)
         .substr(2, 9)
