@@ -137,6 +137,14 @@ const Provider = ({
     [show]
   )
 
+  const warn = useCallback(
+    (message = '', options = {}) => {
+      options.type = types.WARN
+      return show(message, options)
+    },
+    [show]
+  )
+
   alertContext.current = {
     alerts,
     show,
@@ -144,7 +152,8 @@ const Provider = ({
     removeAll,
     success,
     error,
-    info
+    info,
+    warn
   }
 
   const alertsByPosition = groupBy(alerts, alert => alert.options.position)

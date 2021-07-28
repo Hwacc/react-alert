@@ -1,3 +1,8 @@
+/*
+ * @Author: razer.hua
+ * @Date: 2021-07-22 11:14:02
+ * @Description:
+ */
 export const positions = {
   TOP_LEFT: 'top left',
   TOP_CENTER: 'top center',
@@ -13,7 +18,8 @@ export const positions = {
 export const types = {
   INFO: 'info',
   SUCCESS: 'success',
-  ERROR: 'error'
+  ERROR: 'error',
+  WARN: 'warn'
 }
 
 export const transitions = {

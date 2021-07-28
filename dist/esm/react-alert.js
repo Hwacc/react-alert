@@ -150,6 +150,11 @@ function _nonIterableRest() {
 
 var Context = /*#__PURE__*/createContext();
 
+/*
+ * @Author: razer.hua
+ * @Date: 2021-07-22 11:14:02
+ * @Description:
+ */
 var positions = {
   TOP_LEFT: 'top left',
   TOP_CENTER: 'top center',
@@ -164,7 +169,8 @@ var positions = {
 var types = {
   INFO: 'info',
   SUCCESS: 'success',
-  ERROR: 'error'
+  ERROR: 'error',
+  WARN: 'warn'
 };
 var transitions = {
   FADE: 'fade',
@@ -434,6 +440,12 @@ var Provider = function Provider(_ref) {
     options.type = types.INFO;
     return show(message, options);
   }, [show]);
+  var warn = useCallback(function () {
+    var message = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    options.type = types.WARN;
+    return show(message, options);
+  }, [show]);
   alertContext.current = {
     alerts: alerts,
     show: show,
@@ -441,7 +453,8 @@ var Provider = function Provider(_ref) {
     removeAll: removeAll,
     success: success,
     error: error,
-    info: info
+    info: info,
+    warn: warn
   };
   var alertsByPosition = groupBy(alerts, function (alert) {
     return alert.options.position;
