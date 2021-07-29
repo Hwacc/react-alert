@@ -49,6 +49,7 @@ const Provider = ({
       const filteredAlerts = currentAlerts.filter(a => a.id !== alert.id)
 
       if (lengthBeforeRemove > filteredAlerts.length && alert.options.onClose) {
+        alert.timerId && clearTimeout(alert.timerId)
         alert.options.onClose()
       }
 
@@ -102,6 +103,7 @@ const Provider = ({
           timersId.current.splice(timersId.current.indexOf(timerId), 1)
         }, alert.options.timeout)
 
+        alert._timerId = timerId
         timersId.current.push(timerId)
       }
 

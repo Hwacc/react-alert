@@ -371,6 +371,7 @@ var Provider = function Provider(_ref) {
       });
 
       if (lengthBeforeRemove > filteredAlerts.length && alert.options.onClose) {
+        alert.timerId && clearTimeout(alert.timerId);
         alert.options.onClose();
       }
 
@@ -420,6 +421,7 @@ var Provider = function Provider(_ref) {
         remove(alert);
         timersId.current.splice(timersId.current.indexOf(timerId), 1);
       }, alert.options.timeout);
+      alert._timerId = timerId;
       timersId.current.push(timerId);
     }
 
