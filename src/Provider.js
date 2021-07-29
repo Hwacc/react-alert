@@ -48,9 +48,10 @@ const Provider = ({
       const lengthBeforeRemove = currentAlerts.length
       const filteredAlerts = currentAlerts.filter(a => a.id !== alert.id)
 
-      if (lengthBeforeRemove > filteredAlerts.length && alert.options.onClose) {
-        alert.timerId && clearTimeout(alert.timerId)
-        alert.options.onClose()
+      if (lengthBeforeRemove > filteredAlerts.length) {
+        alert.timerId &&
+          clearTimeout(alert.timerId) & alert.options.onClose &&
+          alert.options.onClose()
       }
 
       return filteredAlerts

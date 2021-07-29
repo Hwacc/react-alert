@@ -370,9 +370,8 @@ var Provider = function Provider(_ref) {
         return a.id !== alert.id;
       });
 
-      if (lengthBeforeRemove > filteredAlerts.length && alert.options.onClose) {
-        alert.timerId && clearTimeout(alert.timerId);
-        alert.options.onClose();
+      if (lengthBeforeRemove > filteredAlerts.length) {
+        alert.timerId && clearTimeout(alert.timerId) & alert.options.onClose && alert.options.onClose();
       }
 
       return filteredAlerts;
